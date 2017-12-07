@@ -39,6 +39,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
+/**
+ * Create a directory tree based on the given configuration
+ *
+ * @arg {String} rootDirName - Path to the root directory of the tree to be created
+ * @arg {Array} projectTree - The list of paths of the directories to be created
+ * @arg {Boolean} removeIfExist - If the directores exist yet, then remove them if `true`
+ *
+ * @return {Boolean} - `true` if succeeded, `false` in case of error
+ *
+ * @function
+ */
 exports.createDirectoryTree = function (rootDirName, projectTree, removeIfExist) {
     var rootDirPath = _path2.default.resolve(rootDirName);
 
@@ -60,6 +71,25 @@ exports.createDirectoryTree = function (rootDirName, projectTree, removeIfExist)
     return true;
 };
 
+/**
+ * Copy directories
+ *
+ * @arg {Object} opts - The options of the copy operation.
+ * An object which has the following properties:
+ *      {
+ *          sourceBaseDir: {String},        // The path to the base directory to copy from
+ *          targetBaseDir: {String},        // The path to the base directory to copy into
+ *          dirName: {String},              // The directory to copy
+ *          forceDelete: {Boolean},         // Whether to overwrite existing directory or not
+ *          excludeHiddenUnix: {Boolean},   // Whether to copy hidden Unix files or not (preceding .)
+ *          preserveFiles: {Boolean},       // If we're overwriting something and the file already exists, keep the existing
+ *          inflateSymlinks: {Boolean}      // Whether to follow symlinks or not when copying files
+ *          filter: {RegExp},               // A filter to match files against; if matches, do nothing (exclude).
+ *          whitelist: {Boolean},           // if true every file or directory which doesn't match filter will be ignored
+ *      }
+ *
+ * @function
+ */
 exports.copyDir = function (opts) {
     var sourceDirName = _path2.default.resolve(opts.sourceBaseDir, opts.dirName);
     var destDirName = _path2.default.resolve(opts.targetBaseDir, opts.dirName);
@@ -68,6 +98,15 @@ exports.copyDir = function (opts) {
     _wrench2.default.copyDirSyncRecursive(sourceDirName, destDirName, opts);
 };
 
+/**
+ * Copy one file
+ *
+ * @arg {String} fileName - The name of the file to copy
+ * @arg {String} sourceBaseDir - The source directory
+ * @arg {String} targetBaseDir - The target directory
+ *
+ * @function
+ */
 exports.copyFile = function (fileName, sourceBaseDir, targetBaseDir) {
     console.log('copyFile...' + fileName);
 
@@ -78,6 +117,19 @@ exports.copyFile = function (fileName, sourceBaseDir, targetBaseDir) {
     _fs2.default.writeFileSync(destFileName, _fs2.default.readFileSync(sourceFileName));
 };
 
+/**
+ * Load template partial files
+ *
+ * The function loads every file in the given folder, as a text file, then
+ * then hangs them to an object, as properties.
+ * The property names will be the filenames, of the original partial files, without the full path.
+ *
+ * @arg {String} basePath - The path to the directory which contains the partials
+ *
+ * @return {Object} - An object, which contains the partials.
+ *
+ * @function
+ */
 var loadPartials = function loadPartials(basePath) {
     return _.reduce((0, _datafile.mergeTextFilesByFileNameSync)((0, _datafile.findFilesSync)(basePath, /.*/)), function (acc, value, key) {
         acc[_.last(key.split('/'))] = value;
@@ -85,6 +137,20 @@ var loadPartials = function loadPartials(basePath) {
     }, {});
 };
 
+/**
+ * Process a Handlebars template and extrapolates with the given context data, and write into a file.
+ *
+ * @arg {Object} context - The context data to fill into the template
+ * @arg {Object} opts    - The template options:
+ *      {
+ *          sourceBaseDir: {String}     // The path to the directory of the templates and partials
+ *          template: {String}          // The name of the main template file
+ *          targetBaseDir: {String}     // The path to the directory of the target file
+ *          target: {String}            // The name of the target file
+ *      }
+ *
+ * @function
+ */
 exports.processTemplate = function (context, opts) {
     var templateFileName = _path2.default.resolve(opts.sourceBaseDir, opts.template);
     var resultFileName = _path2.default.resolve(opts.targetBaseDir, opts.target ? opts.target : opts.template);
@@ -95,7 +161,7 @@ exports.processTemplate = function (context, opts) {
 };
 
 /**
- * Converts each markdown-format fields of the object
+ * Convert each markdown-format fields of the object to HTML
  *
  * @arg  {Object} doc - The document
  *
@@ -103,7 +169,6 @@ exports.processTemplate = function (context, opts) {
  *
  * @function
  */
-
 exports.convertMarkdown = function (doc, mdProps) {
 
     var getPropsDeep = function getPropsDeep(obj) {

@@ -36,7 +36,6 @@ before(function (done) {
 
 after(function (done) {
     destCleanup(done);
-    //    done()
 });
 
 describe('generator', function () {
