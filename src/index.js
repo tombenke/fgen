@@ -5,7 +5,7 @@
 /**
  * Universal generator module to create directories files and template based contents
  *
- * @module fgen
+ * @module dgen
  */
 
 import * as _ from 'lodash'

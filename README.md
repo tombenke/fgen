@@ -1,4 +1,4 @@
-fgen
+dgen
 ====
 
 [![unstable](http://badges.github.io/stability-badges/dist/unstable.svg)](http://github.com/badges/stability-badges)
@@ -8,14 +8,14 @@ fgen
 
 Universal generator module to create directories files and template based contents
 
-Read the [API documentation](https://tombenke.github.io/fgen/index.html)
+Read the [API documentation](https://tombenke.github.io/dgen/index.html)
 for further details on how to use this library.
 
 ## Installation
 
 Run the install command:
 
-    npm install --save fgen
+    npm install --save dgen
 
 
 ## Development
@@ -51,10 +51,10 @@ Gain test coverage report:
     npm run coverage
 ```
 
-[npm-badge]: https://badge.fury.io/js/fgen.svg
-[npm-url]: https://badge.fury.io/js/fgen
-[travis-badge]: https://api.travis-ci.org/tombenke/fgen.svg
-[travis-url]: https://travis-ci.org/tombenke/fgen
-[Coveralls]: https://coveralls.io/github/tombenke/fgen?branch=master
-[BadgeCoveralls]: https://coveralls.io/repos/github/tombenke/fgen/badge.svg?branch=master
+[npm-badge]: https://badge.fury.io/js/dgen.svg
+[npm-url]: https://badge.fury.io/js/dgen
+[travis-badge]: https://api.travis-ci.org/tombenke/dgen.svg
+[travis-url]: https://travis-ci.org/tombenke/dgen
+[Coveralls]: https://coveralls.io/github/tombenke/dgen?branch=master
+[BadgeCoveralls]: https://coveralls.io/repos/github/tombenke/dgen/badge.svg?branch=master
 

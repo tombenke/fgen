@@ -6,7 +6,7 @@
 /**
  * Universal generator module to create directories files and template based contents
  *
- * @module fgen
+ * @module dgen
  */
 
 var _lodash = require('lodash');
