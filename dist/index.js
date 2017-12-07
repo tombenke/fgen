@@ -76,6 +76,7 @@ exports.createDirectoryTree = function (rootDirName, projectTree, removeIfExist)
  *
  * @arg {Object} opts - The options of the copy operation.
  * An object which has the following properties:
+ *
  *      {
  *          sourceBaseDir: {String},        // The path to the base directory to copy from
  *          targetBaseDir: {String},        // The path to the base directory to copy into
@@ -140,8 +141,9 @@ var loadPartials = function loadPartials(basePath) {
 /**
  * Process a Handlebars template and extrapolates with the given context data, and write into a file.
  *
- * @arg {Object} context - The context data to fill into the template
- * @arg {Object} opts    - The template options:
+ * @param {Object} context - The context data to fill into the template
+ * @param {Object} opts    - The template options:
+ *
  *      {
  *          sourceBaseDir: {String}     // The path to the directory of the templates and partials
  *          template: {String}          // The name of the main template file

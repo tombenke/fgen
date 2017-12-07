@@ -351,19 +351,18 @@
 
             
 
-            <td class="description last"><p>The options of the copy operation.
-An object which has the following properties:
-     {
-         sourceBaseDir: {String},        // The path to the base directory to copy from
-         targetBaseDir: {String},        // The path to the base directory to copy into
-         dirName: {String},              // The directory to copy
-         forceDelete: {Boolean},         // Whether to overwrite existing directory or not
-         excludeHiddenUnix: {Boolean},   // Whether to copy hidden Unix files or not (preceding .)
-         preserveFiles: {Boolean},       // If we're overwriting something and the file already exists, keep the existing
-         inflateSymlinks: {Boolean}      // Whether to follow symlinks or not when copying files
-         filter: {RegExp},               // A filter to match files against; if matches, do nothing (exclude).
-         whitelist: {Boolean},           // if true every file or directory which doesn't match filter will be ignored
-     }</p></td>
+            <td class="description last"><p>The options of the copy operation. An object which has the following properties:</p>
+<pre class="prettyprint source"><code> {
+     sourceBaseDir: {String},        // The path to the base directory to copy from
+     targetBaseDir: {String},        // The path to the base directory to copy into
+     dirName: {String},              // The directory to copy
+     forceDelete: {Boolean},         // Whether to overwrite existing directory or not
+     excludeHiddenUnix: {Boolean},   // Whether to copy hidden Unix files or not (preceding .)
+     preserveFiles: {Boolean},       // If we're overwriting something and the file already exists, keep the existing
+     inflateSymlinks: {Boolean}      // Whether to follow symlinks or not when copying files
+     filter: {RegExp},               // A filter to match files against; if matches, do nothing (exclude).
+     whitelist: {Boolean},           // if true every file or directory which doesn't match filter will be ignored
+ }</code></pre></td>
         </tr>
 
     
@@ -892,13 +891,13 @@ An object which has the following properties:
 
             
 
-            <td class="description last"><p>The template options:
-     {
-         sourceBaseDir: {String}     // The path to the directory of the templates and partials
-         template: {String}          // The name of the main template file
-         targetBaseDir: {String}     // The path to the directory of the target file
-         target: {String}            // The name of the target file
-     }</p></td>
+            <td class="description last"><p>The template options:</p>
+<pre class="prettyprint source"><code> {
+     sourceBaseDir: {String}     // The path to the directory of the templates and partials
+     template: {String}          // The name of the main template file
+     targetBaseDir: {String}     // The path to the directory of the target file
+     target: {String}            // The name of the target file
+ }</code></pre></td>
         </tr>
 
     
@@ -977,9 +976,7 @@ An object which has the following properties:
 
 <div class="description">
     <p>Load template partial files</p>
-<p>The function loads every file in the given folder, as a text file, then
-then hangs them to an object, as properties.
-The property names will be the filenames, of the original partial files, without the full path.</p>
+<p>The function loads every file in the given folder, as a text file, then<br>then hangs them to an object, as properties.<br>The property names will be the filenames, of the original partial files, without the full path.</p>
 </div>
 
 
