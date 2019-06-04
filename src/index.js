@@ -32,8 +32,8 @@ exports.createDirectoryTree = (rootDirName, projectTree, removeIfExist) => {
     const rootDirPath = path.resolve(rootDirName)
 
     if (fs.existsSync(rootDirPath)) {
-        console.log( "ERROR: Directory exists yet! " + rootDirPath)
-        if( ! removeIfExist ) {
+        console.log("ERROR: Directory exists yet! " + rootDirPath)
+        if(! removeIfExist) {
             return false
         }
         console.log('Remove existing directory...')

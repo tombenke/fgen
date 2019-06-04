@@ -10,7 +10,7 @@
     "source": {
         "include": [ "./src/" ]
     },
-    "plugins": ["node_modules/jsdoc/plugins/markdown"],
+    "plugins": ["plugins/markdown"],
     "markdown": {
         "hardwrap": true
     },
