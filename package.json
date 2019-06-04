@@ -1,7 +1,7 @@
 {
   "name": "dgen",
   "description": "Universal generator module to create directories files and template based contents",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "tags": [
     "json",
     "yaml",
