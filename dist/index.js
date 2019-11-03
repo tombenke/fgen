@@ -74,8 +74,7 @@ exports.createDirectoryTree = function (rootDirName, projectTree, removeIfExist)
 /**
  * Copy directories
  *
- * @arg {Object} opts - The options of the copy operation.
- * An object which has the following properties:
+ * @param {Object} opts - The options of the copy operation. An object which has the following properties:
  *
  *      {
  *          sourceBaseDir: {String},        // The path to the base directory to copy from
